@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 
 export const Container = styled.View`
   position: absolute;
@@ -8,6 +9,7 @@ export const Container = styled.View`
   background: #e83f5b;
 
   padding: 0 20px;
+  padding-bottom: ${getBottomSpace()}px;
   justify-content: space-between;
   align-items: center;
 `;

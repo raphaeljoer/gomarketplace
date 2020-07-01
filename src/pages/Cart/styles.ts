@@ -1,5 +1,9 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { FlatList } from 'react-native';
+
+interface ActionButtonProps {
+  isRemovable?: boolean;
+}
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -30,11 +34,13 @@ export const Product = styled.View`
 export const ProductImage = styled.Image`
   height: 92px;
   width: 92px;
+  margin-right: 16px;
 `;
 
 export const ProductTitleContainer = styled.View`
   font-size: 16px;
   margin-left: 5px;
+  margin-top: 8px;
 `;
 
 export const ProductTitle = styled.Text`
@@ -47,7 +53,7 @@ export const ProductPriceContainer = styled.View`
 
 export const TotalContainer = styled.View`
   flex-direction: row;
-  margin-top: 8px;
+  margin-top: 16px;
 `;
 
 export const ProductSinglePrice = styled.Text`
@@ -81,11 +87,17 @@ export const ActionContainer = styled.View`
   margin-left: auto;
 `;
 
-export const ActionButton = styled.TouchableOpacity`
+export const ActionButton = styled.TouchableOpacity<ActionButtonProps>`
   background: rgba(232, 63, 91, 0.1);
   border-radius: 5px;
   padding: 12px;
   margin-bottom: 5px;
+
+  ${props =>
+    props.isRemovable &&
+    css`
+      background: rgba(232, 63, 91, 0.9);
+    `}
 `;
 
 export const TotalProductsContainer = styled.View`
